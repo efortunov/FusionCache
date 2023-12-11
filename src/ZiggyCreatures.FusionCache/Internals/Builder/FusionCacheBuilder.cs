@@ -185,7 +185,7 @@ internal sealed class FusionCacheBuilder
 		if (UseRegisteredDistributedCache)
 		{
 			distributedCache = serviceProvider.GetService<IDistributedCache>();
-			if (IgnoreRegisteredMemoryDistributedCache && distributedCache is MemoryDistributedCache)
+			if (IgnoreRegisteredMemoryDistributedCache || distributedCache is MemoryDistributedCache)
 			{
 				distributedCache = null;
 			}
